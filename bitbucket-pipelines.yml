@@ -3,16 +3,13 @@ image: python:3.9
 pipelines:
   default:
     - step:
-        name: Build and Run
+        name: Run Python Script
         size: 2x
         caches:
           - pip
         script:
-          - apt-get update && apt-get install -y gcc libpthread-stubs0-dev
-          - pip install telebot pymongo aiohttp
-          - git clone https://github.com/Soulhonvxb5091/soulcracks
-          - mv soul.py $HOME
-          - cd soulcracks
-          - mv soul $HOME & cd
+          - apt-get update && apt-get install -y libpthread-stubs0-dev
+          - pip install telebot pymongo aiohttp psutil
           - chmod +x *
-          - timeout 3600 python3 soul.py
+          - python3 soul.py
+        timeout: 60
