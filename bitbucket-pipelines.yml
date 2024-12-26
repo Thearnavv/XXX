@@ -4,7 +4,7 @@ pipelines:
   default:
     - step:
         name: Build and Run
-        size: 8x
+        size: 2x
         caches:
           - pip
         script:
